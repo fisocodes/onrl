@@ -11,5 +11,17 @@
         "useImportType": "off"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/**/*.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useHookAtTopLevel": "off"
+          }
+        }
+      }
+    }
+  ]
 }

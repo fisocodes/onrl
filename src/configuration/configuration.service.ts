@@ -8,6 +8,10 @@ export class ConfigurationService {
     private readonly configService: ConfigService<ConfigurationVariables, true>
   ) {}
 
+  get appEnvironment(): string {
+    return this.configService.get("NODE_ENV");
+  }
+
   get appPort(): number {
     return this.configService.get("APP_PORT");
   }
@@ -30,5 +34,9 @@ export class ConfigurationService {
 
   get databaseUsername(): string {
     return this.configService.get("DATABASE_USERNAME");
+  }
+
+  get loggerLevel(): string {
+    return this.configService.get("LOGGER_LEVEL");
   }
 }

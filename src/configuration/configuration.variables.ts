@@ -1,7 +1,23 @@
 import { Type } from "class-transformer";
-import { IsNotEmpty, IsNumber, IsString, Max, Min } from "class-validator";
+import {
+  IsEnum,
+  IsIn,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  Max,
+  Min,
+} from "class-validator";
+
+export enum AppEnvironment {
+  Development = "development",
+  Production = "production",
+}
 
 export class ConfigurationVariables {
+  @IsEnum(AppEnvironment)
+  NODE_ENV!: AppEnvironment;
+
   @Type(() => Number)
   @IsNumber()
   @Min(1)
@@ -29,4 +45,8 @@ export class ConfigurationVariables {
   @IsString()
   @IsNotEmpty()
   DATABASE_PASSWORD!: string;
+
+  @IsString()
+  @IsIn(["fatal", "error", "warn", "info", "debug", "trace"])
+  LOGGER_LEVEL!: string;
 }
