@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import type { ConfigService } from "@nestjs/config";
-import type { ConfigurationVariables } from "./configuration.variables";
+import { ConfigService } from "@nestjs/config";
+import { ConfigurationVariables } from "./configuration.variables";
 
 @Injectable()
 export class ConfigurationService {
@@ -10,5 +10,25 @@ export class ConfigurationService {
 
   get appPort(): number {
     return this.configService.get("APP_PORT");
+  }
+
+  get databaseHost(): string {
+    return this.configService.get("DATABASE_HOST");
+  }
+
+  get databaseName(): string {
+    return this.configService.get("DATABASE_NAME");
+  }
+
+  get databasePassword(): string {
+    return this.configService.get("DATABASE_PASSWORD");
+  }
+
+  get databasePort(): number {
+    return this.configService.get("DATABASE_PORT");
+  }
+
+  get databaseUsername(): string {
+    return this.configService.get("DATABASE_USERNAME");
   }
 }

@@ -4,8 +4,9 @@ import { ConfigurationVariables } from "./configuration.variables";
 
 export function validate(config: Record<string, unknown>) {
   const validatedConfig = plainToInstance(ConfigurationVariables, config, {
-    enableImplicitConversion: true,
+    enableImplicitConversion: false,
   });
+
   const errors = validateSync(validatedConfig, {
     skipMissingProperties: false,
   });
@@ -13,5 +14,6 @@ export function validate(config: Record<string, unknown>) {
   if (errors.length > 0) {
     throw new Error(errors.toString());
   }
+
   return validatedConfig;
 }
