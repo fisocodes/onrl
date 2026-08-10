@@ -1,3 +1,4 @@
+import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Logger } from "nestjs-pino";
@@ -8,8 +9,19 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     bufferLogs: true,
   });
-  const configurationService = app.get(ConfigurationService);
+
   app.useLogger(app.get(Logger));
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      forbidNonWhitelisted: true,
+      transform: true,
+      whitelist: true,
+    })
+  );
+
+  const configurationService = app.get(ConfigurationService);
   await app.listen(configurationService.appPort);
 }
+
 bootstrap();

@@ -5,6 +5,11 @@
     "ultracite/biome/nestjs",
     "ultracite/biome/react"
   ],
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
   "linter": {
     "rules": {
       "style": {
