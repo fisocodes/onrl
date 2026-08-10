@@ -4,7 +4,7 @@ import { ConfigurationService } from "./configuration.service";
 import { validate } from "./configuration.validate";
 
 @Module({
-  exports: [ConfigModule],
+  exports: [ConfigModule, ConfigurationService],
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
