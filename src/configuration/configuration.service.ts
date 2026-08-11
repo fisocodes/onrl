@@ -36,6 +36,32 @@ export class ConfigurationService {
     return this.configService.get("DATABASE_USERNAME");
   }
 
+  get healthDiskThresholdPercent(): number {
+    return this.configService.get("HEALTH_DISK_THRESHOLD_PERCENT", {
+      infer: true,
+    });
+  }
+
+  get healthMemoryHeapThresholdBytes(): number {
+    return (
+      this.configService.get("HEALTH_MEMORY_HEAP_THRESHOLD_MB", {
+        infer: true,
+      }) *
+      1024 *
+      1024
+    );
+  }
+
+  get healthMemoryRssThresholdBytes(): number {
+    return (
+      this.configService.get("HEALTH_MEMORY_RSS_THRESHOLD_MB", {
+        infer: true,
+      }) *
+      1024 *
+      1024
+    );
+  }
+
   get loggerLevel(): string {
     return this.configService.get("LOGGER_LEVEL");
   }

@@ -3,10 +3,11 @@ import { APP_FILTER } from "@nestjs/core";
 import { AllExceptionsFilter } from "./common/filters/all-exceptions.filter";
 import { ConfigurationModule } from "./configuration/configuration.module";
 import { DatabaseModule } from "./database/database.module";
+import { HealthModule } from "./health/health.module";
 import { LoggerModule } from "./logger/logger.module";
 
 @Module({
-  imports: [ConfigurationModule, LoggerModule, DatabaseModule],
+  imports: [ConfigurationModule, LoggerModule, HealthModule, DatabaseModule],
   providers: [
     {
       provide: APP_FILTER,
