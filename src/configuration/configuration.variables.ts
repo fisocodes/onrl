@@ -46,6 +46,22 @@ export class ConfigurationVariables {
   @IsNotEmpty()
   DATABASE_PASSWORD!: string;
 
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  HEALTH_MEMORY_HEAP_THRESHOLD_MB!: number;
+
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  HEALTH_MEMORY_RSS_THRESHOLD_MB!: number;
+
+  @Type(() => Number)
+  @IsNumber()
+  @Min(0)
+  @Max(1)
+  HEALTH_DISK_THRESHOLD_PERCENT!: number;
+
   @IsString()
   @IsIn(["fatal", "error", "warn", "info", "debug", "trace"])
   LOGGER_LEVEL!: string;
