@@ -65,4 +65,16 @@ export class ConfigurationService {
   get loggerLevel(): string {
     return this.configService.get("LOGGER_LEVEL");
   }
+
+  get redisHost(): string {
+    return this.configService.get("REDIS_HOST");
+  }
+
+  get redisPort(): number {
+    return this.configService.get("REDIS_PORT");
+  }
+
+  get redisPassword(): string {
+    return this.configService.get("REDIS_PASSWORD");
+  }
 }
