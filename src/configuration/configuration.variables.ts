@@ -65,4 +65,18 @@ export class ConfigurationVariables {
   @IsString()
   @IsIn(["fatal", "error", "warn", "info", "debug", "trace"])
   LOGGER_LEVEL!: string;
+
+  @Type(() => Number)
+  @IsNumber()
+  @Min(1)
+  @Max(65_535)
+  REDIS_PORT!: number;
+
+  @IsString()
+  @IsNotEmpty()
+  REDIS_HOST!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  REDIS_PASSWORD!: string;
 }
