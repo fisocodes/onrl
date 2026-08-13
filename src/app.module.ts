@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { APP_FILTER } from "@nestjs/core";
+import { CaslModule } from "./casl/casl.module";
 import { AllExceptionsFilter } from "./common/filters/all-exceptions.filter";
 import { ConfigurationModule } from "./configuration/configuration.module";
 import { DatabaseModule } from "./database/database.module";
@@ -14,6 +15,7 @@ import { QueueModule } from "./queue/queue.module";
     HealthModule,
     DatabaseModule,
     QueueModule,
+    CaslModule,
   ],
   providers: [
     {
