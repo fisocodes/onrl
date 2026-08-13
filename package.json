@@ -15,6 +15,7 @@
     "start:prod": "node ."
   },
   "dependencies": {
+    "@casl/ability": "^7.0.1",
     "@nestjs/bullmq": "^11.0.5",
     "@nestjs/common": "^11.1.28",
     "@nestjs/config": "^4.0.4",
